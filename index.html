@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lazyCodder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ::-webkit-scrollbar{
+            width: 0;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-gray-800 text-white body-font shadow w-full">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <svg height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#FDDF6D;" cx="216.403" cy="259.198" r="216.403"></circle> <path style="fill:#FCC56B;" d="M262.775,443.654c-119.516,0-216.402-96.886-216.402-216.402c0-63.853,27.661-121.238,71.647-160.848 C47.962,102.225,0,175.11,0,259.198C0,378.714,96.886,475.6,216.402,475.6c55.663,0,106.411-21.023,144.755-55.553 C331.64,435.139,298.203,443.654,262.775,443.654z"></path>
+                 <g> <path style="fill:#7F184C;" d="M185.688,286.109c-21.41,0-40.755-5.478-51.744-14.655c-3.732-3.116-4.23-8.669-1.114-12.4 c3.116-3.73,8.669-4.232,12.4-1.114c7.684,6.417,23.564,10.563,40.458,10.563c16.487,0,32.586-4.225,41.01-10.761 c3.841-2.98,9.37-2.282,12.352,1.559c2.98,3.841,2.282,9.372-1.559,12.352C225.824,280.703,206.457,286.109,185.688,286.109z"></path> <path style="fill:#7F184C;" d="M338.393,286.109c-21.41,0-40.753-5.478-51.743-14.655c-3.732-3.116-4.23-8.669-1.114-12.4 c3.115-3.73,8.667-4.232,12.4-1.114c7.684,6.417,23.564,10.563,40.456,10.563c16.488,0,32.587-4.225,41.012-10.761 c3.841-2.98,9.372-2.282,12.352,1.559c2.98,3.841,2.282,9.372-1.559,12.352C378.53,280.703,359.163,286.109,338.393,286.109z"></path> 
+                    <circle style="fill:#7F184C;" cx="259.963" cy="384.044" r="36.092"></circle> </g> <g> 
+                <path style="fill:#0DAED3;" d="M261.385,226.355c-2.119,0-4.213-0.763-5.86-2.231c-2.652-2.363-3.624-6.089-2.464-9.446 l9.73-28.171l-18.598,9.868c-4.295,2.281-9.625,0.644-11.904-3.649c-2.278-4.295-0.646-9.624,3.649-11.904l38.344-20.347 c3.194-1.693,7.102-1.264,9.851,1.088c2.748,2.351,3.778,6.144,2.598,9.562l-10.143,29.364l15.229-7.308 c4.381-2.101,9.642-0.257,11.746,4.128c2.103,4.383,0.256,9.643-4.128,11.746l-34.245,16.433 C263.978,226.071,262.678,226.355,261.385,226.355z"></path>
+                 <path style="fill:#0DAED3;" d="M347.506,187.153c-2.101,0-4.18-0.751-5.822-2.199c-2.679-2.361-3.667-6.104-2.501-9.478 l16.881-48.874l-34.7,18.412c-4.295,2.28-9.625,0.643-11.904-3.649c-2.278-4.295-0.646-9.624,3.649-11.904l54.445-28.889 c3.195-1.693,7.102-1.264,9.851,1.088c2.748,2.351,3.779,6.144,2.598,9.562l-17.179,49.74l36.941-18.248 c4.361-2.153,9.638-0.365,11.792,3.994c2.153,4.36,0.365,9.638-3.994,11.792l-56.158,27.741 C350.165,186.854,348.83,187.153,347.506,187.153z"></path>
+                  <path style="fill:#0DAED3;" d="M441.644,142.617c-2.119,0-4.213-0.763-5.86-2.231c-2.652-2.364-3.624-6.09-2.464-9.446 l23.309-67.486l-49.177,26.093c-4.296,2.28-9.625,0.644-11.904-3.649c-2.278-4.295-0.644-9.624,3.649-11.904l68.922-36.57 c3.195-1.693,7.102-1.264,9.851,1.088c2.749,2.351,3.778,6.144,2.598,9.562l-23.721,68.677l42.535-20.412 c4.379-2.103,9.642-0.257,11.746,4.128c2.103,4.383,0.256,9.643-4.128,11.746l-61.552,29.538 C444.237,142.332,442.936,142.617,441.644,142.617z"></path> </g> 
+                  <ellipse transform="matrix(0.2723 -0.9622 0.9622 0.2723 87.0308 321.3217)" style="fill:#FCEB88;" cx="255.952" cy="103.122" rx="25.237" ry="45.191"></ellipse> </g></svg>
+            <span class="ml-2 text-xl">lazyCodder</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <ul>
+                <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">Home</a></li>
+                <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">Services</a></li>
+                <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">Contact</a></li>
+                <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">About</a></li>
+            </ul>
+          </nav>
+          <button class="inline-flex items-center bg-gray-900 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">Login
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+      <!--Hero section-->
+      <section class="text-gray-700 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+                    Hi,I am <span class="text-indigo-500">Piash Uddin</span>,
+                    <br class="hidden lg:inline-block">A Web Developer.
+                </h1>
+                <p class="mb-8 leading-relaxed">Passionate about building excellent web-site that improves the lives of those around me. Specialize in creating web-site for clients ranging from individuals and small-businesses all the way to large enterprise corporations.</p>
+                <div class="flex justify-center">
+                    <a href="#portfolio" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Downlod CV</a>
+                    <a href="#contact" class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">Contact with Me</a>
+                </div>
+            </div>
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
+                <img class="object-cover object-center rounded w-[400px]" alt="hero" src="img/download.png">
+            </div>
+        </div>
+    </section>
+    <!---- Project Section---->
+    <section class="bg-indigo-50">
+        <div class="container mx-auto px-4 py-12">
+            <h2 class="text-center mb-10 font-bold text-4xl ">My Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8 ">
+                <!-- Project 1 -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-[500px] h-auto">
+                    <img src="img/E-wallet.jpg" alt="Project 1" class="w-full">
+                    <div class="p-4">
+                        <h3 class="font-bold text-2xl mb-2">E-Wallet</h3>
+                        <p class="text-gray-700">Online payment application</p>
+                    </div>
+                </div>
+        
+                <!-- Project 2 -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-[500px] h-auto">
+                    <img src="img/marrydo.jpg" alt="Project 2" class="w-full">
+                    <div class="p-4">
+                        <h3 class="font-bold text-2xl mb-2">MarrydoWeadings</h3>
+                        <p class="text-gray-700">Event managemant & weading planer</p>
+                    </div>
+                </div>
+        
+                <!-- Project 3 -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-[500px] h-auto mt-8 md:mt-0">
+                    <img src="img/vichelin.jpg" alt="Project 3" class="w-full">
+                    <div class="p-4">
+                        <h3 class="font-bold text-2xl mb-2">Vicheline</h3>
+                        <p class="text-gray-700">Online car auction website </p>
+                    </div>
+                </div>
+        
+                <!-- Project 4 -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-[500px] h-auto mt-8 md:mt-0">
+                    <img src="img/food.jpg" alt="Project 4" class="w-full">
+                    <div class="p-4">
+                        <h3 class="font-bold text-2xl mb-2">American-Food</h3>
+                        <p class="text-gray-700">An American fast-food resturent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---Skill Section--->
+    <section>
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-center mb-10 font-bold text-4xl ">Skills I've Achive</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <!-- Skill 1 -->
+              <div class="flex flex-col items-center">
+                <h2 class="text-lg font-bold mb-4">Web Design</h2>
+                <img src="img/web_design.png" alt="Image 1" class="w-36 rounded">
+              </div>
+          
+              <!-- Skill 2 -->
+              <div class="flex flex-col items-center">
+                <h2 class="text-lg font-bold mb-4">Web Development</h2>
+                <img src="img/web_development.png" alt="Image 2" class="w-36 rounded">
+              </div>
+          
+              <!-- Skill 3 -->
+              <div class="flex flex-col items-center">
+                <h2 class="text-lg font-bold mb-4">Problem Fixcigng</h2>
+                <img src="img/fixcigng.png" alt="Image 3" class="w-36 rounded">
+              </div>
+          
+              <!-- Skill 4 -->
+              <div class="flex flex-col items-center">
+                <h2 class="text-lg font-bold mb-4">Conversion</h2>
+                <img src="img/html_css.jpeg" alt="Image 4" class="w-36 rounded">
+              </div>
+          
+              <!-- Skill 5 -->
+              <div class="flex flex-col items-center">
+                <h2 class="text-lg font-bold mb-4">Digital Marketing</h2>
+                <img src="img/digital_marketing.png" alt="Image 5" class="w-36 rounded">
+              </div>
+            </div>
+          </div>  
+    </section>
+
+    <!-----Contact section----->
+    <section id="contact" class="bg-indigo-50">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-wrap -mx-2">
+                <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center gap-y-4	 h-[400px]">
+
+                        <p class="font-medium text-xl">
+                            Are you intersted work with me? 
+                        </p>
+                        <ul>
+                            <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">
+                                <i class="fa-brands fa-github fa-lg"></i></a></li>
+                            <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">
+                                <i class="fab fa-linkedin-in fa-lg"></i></a></li>
+                            <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">
+                                <i class="fab fa-facebook-f fa-lg"></i></a></li>
+                            <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">
+                                <i class="fab fa-twitter fa-lg"></i></a></li>
+                            <li class="inline-block"><a class="mr-5 hover:text-gray-400 cursor-pointer">
+                                <i class="fab fa-instagram fa-lg"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-2">
+                    <form class="bg-white p-6 rounded-lg shadow-lg h-[400px]">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+        <!-----Footer section----->
+    <footer class="bg-gray-800">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center ">
+            <p class="text-2xl text-white" >
+                Copyright ©  <span id="demo"></span> <img src="img/sleeping-emoji.png" alt="" class="w-[30px] inline-block">lazyCodder
+                 
+            </p>
+        </div>
+    </footer>
+
+   
+    
+   
+<script>
+    const d = new Date();
+    let year = d.getFullYear();
+    document.getElementById("demo").innerHTML = year;
+    </script>
+</body>
+</html>
